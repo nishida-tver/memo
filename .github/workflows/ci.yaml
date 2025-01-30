@@ -1,0 +1,46 @@
+name: upload appdistribution qa
+
+on:
+  workflow_dispatch:
+    inputs:
+      note:
+        description: 'リリースノート'
+        required: true
+        type: textarea
+
+jobs:
+  deploy:
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    environment:
+      name: qa
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+      - name: Setup JDK
+        uses: ./.github/actions/setup-java
+      - name: Decrypt Credentials
+        uses: ./.github/actions/setup-credentials
+        with:
+          password: ${{ secrets.OPEN_SSL_PASS }}
+          mu_name: ${{ secrets.MU_NAME }}
+          mu_pat: ${{ secrets.MU_PAT }}
+      - name: Decode SigningConfig
+        uses: ./.github/actions/signing-config
+        with:
+          encoded_keystore: ${{ secrets.ENCODED_KEYSTORE }}
+          encoded_release_gradle: ${{ secrets.ENCODED_RELEASE_GRADLE }}
+      - name: Build
+        run: './gradlew assembleQaDebug'
+      - name: Upload Appdistribution
+        uses: ./.github/actions/upload-appdistribution
+        with:
+          release_notes: ${{ github.event.inputs.note }}
+          firebase_app_id: ${{ secrets.FIREBASE_APP_ID }}
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.FIREBASE_SERVICE_ACCOUNT}}
+          path: './app/build/outputs/apk/qa/debug/app-qa-debug.apk'
+
