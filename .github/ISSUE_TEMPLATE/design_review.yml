@@ -51,7 +51,7 @@ body:
       label: スマホ
       description: |
         スマホでのスクリーンショット比較
-      placeholder: |
+      value: |
         | Figma | 実装 |
         |-------|------|
         | <img width="300" src="" /> | <img width="300" src="" /> |
