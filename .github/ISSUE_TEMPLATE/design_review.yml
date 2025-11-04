@@ -65,7 +65,7 @@ body:
       label: タブレット(縦)
       description: |
         タブレット縦向きでのスクリーンショット比較
-      placeholder: |
+      value: |
         | Figma | 実装 |
         |-------|------|
         | <img width="500" src="" /> | <img width="500" src="" /> |
@@ -79,7 +79,7 @@ body:
       label: タブレット(横)
       description: |
         タブレット横向きでのスクリーンショット比較
-      placeholder: |
+      value: |
         | Figma | 実装 |
         |-------|------|
         | <img width="500" src="" /> | <img width="500" src="" /> |
@@ -93,7 +93,7 @@ body:
       label: ダークモード確認
       description: |
         ダークモードでのスクリーンショット比較
-      placeholder: |
+      value: |
         | Figma | 実装 |
         |-------|------|
         | <img width="300" src="" /> | <img width="300" src="" /> |
@@ -107,7 +107,7 @@ body:
       label: その他の比較（任意）
       description: |
         特定の状態や特殊ケースのスクリーンショット比較
-      placeholder: |
+      value: |
         | Figma | 実装 |
         |-------|------|
         | <img width="300" src="" /> | <img width="300" src="" /> |
