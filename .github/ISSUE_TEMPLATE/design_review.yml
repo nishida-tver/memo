@@ -55,7 +55,6 @@ body:
         | Figma | 実装 |
         |-------|------|
         | <img width="300" src="" /> | <img width="300" src="" /> |
-      render: markdown
     validations:
       required: false
 
@@ -69,7 +68,6 @@ body:
         | Figma | 実装 |
         |-------|------|
         | <img width="500" src="" /> | <img width="500" src="" /> |
-      render: markdown
     validations:
       required: false
 
@@ -83,7 +81,6 @@ body:
         | Figma | 実装 |
         |-------|------|
         | <img width="500" src="" /> | <img width="500" src="" /> |
-      render: markdown
     validations:
       required: false
 
@@ -97,7 +94,6 @@ body:
         | Figma | 実装 |
         |-------|------|
         | <img width="300" src="" /> | <img width="300" src="" /> |
-      render: markdown
     validations:
       required: false
 
@@ -111,7 +107,6 @@ body:
         | Figma | 実装 |
         |-------|------|
         | <img width="300" src="" /> | <img width="300" src="" /> |
-      render: markdown
     validations:
       required: false
 
