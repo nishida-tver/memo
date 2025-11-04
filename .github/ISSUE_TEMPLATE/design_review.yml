@@ -1,0 +1,156 @@
+name: 実装デザインチェックテンプレート
+description: 実装後のデザイン確認用テンプレート
+title: "[実装デザインチェック][機能名]画面名"
+labels: []
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 実装デザインチェック
+        実装後のデザインとFigmaのデザインを比較し、差異がないか確認するためのテンプレートです。
+
+  - type: input
+    id: binary-link
+    attributes:
+      label: バイナリリンク
+      description: Firebase App Distributionなどのテストバイナリリンクを記載
+      placeholder: https://appdistribution.firebase.dev/...
+    validations:
+      required: false
+
+  - type: input
+    id: figma-url
+    attributes:
+      label: 確認対象（FigmaのURL）
+      description: 確認対象のFigmaのURLを記載
+      placeholder: https://www.figma.com/...
+    validations:
+      required: true
+
+  - type: input
+    id: implementation-pr
+    attributes:
+      label: 実装PR（任意）
+      description: 実装PRのリンクを記載
+      placeholder: "#1234"
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## スクリーンショット比較
+        Figmaと実装のスクリーンショットを横並びで貼り付けて、目視で差異を確認できるようにしてください。
+        画像は `<img width="300" src="..." />` のように幅を指定すると見やすくなります。
+        不要な行は削除してください。
+
+  - type: textarea
+    id: screenshot-phone
+    attributes:
+      label: スマホ
+      description: |
+        スマホでのスクリーンショット比較
+      placeholder: |
+        | Figma | 実装 |
+        |-------|------|
+        | <img width="300" src="" /> | <img width="300" src="" /> |
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshot-tablet-portrait
+    attributes:
+      label: タブレット(縦)
+      description: |
+        タブレット縦向きでのスクリーンショット比較
+      placeholder: |
+        | Figma | 実装 |
+        |-------|------|
+        | <img width="500" src="" /> | <img width="500" src="" /> |
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshot-tablet-landscape
+    attributes:
+      label: タブレット(横)
+      description: |
+        タブレット横向きでのスクリーンショット比較
+      placeholder: |
+        | Figma | 実装 |
+        |-------|------|
+        | <img width="500" src="" /> | <img width="500" src="" /> |
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshot-dark-mode
+    attributes:
+      label: ダークモード確認
+      description: |
+        ダークモードでのスクリーンショット比較
+      placeholder: |
+        | Figma | 実装 |
+        |-------|------|
+        | <img width="300" src="" /> | <img width="300" src="" /> |
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshot-others
+    attributes:
+      label: その他の比較（任意）
+      description: |
+        特定の状態や特殊ケースのスクリーンショット比較
+      placeholder: |
+        | Figma | 実装 |
+        |-------|------|
+        | <img width="300" src="" /> | <img width="300" src="" /> |
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: 補足事項・特記事項
+      description: |
+        デザインチェック時に注意すべき点を記載
+      placeholder: |
+        ※下記は1stリリースでは表示しない仕様となりました
+        - 出演者情報
+        - お気に入りボタン
+
+        ※特に確認して欲しい観点
+        - [ ] 長いテキストの表示（切り捨て、折り返し）
+        - [ ] ローディング状態のアニメーション
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## デザイナー確認観点
+
+  - type: checkboxes
+    id: device-orientation-check
+    attributes:
+      label: デバイス・向きの各パターンでのUI確認
+      options:
+        - label: スマホ
+        - label: タブレット(縦)
+        - label: タブレット(横)
+
+  - type: checkboxes
+    id: theme-check
+    attributes:
+      label: ライト/ダークモードでのカラー確認
+      options:
+        - label: ライトモード
+        - label: ダークモード
